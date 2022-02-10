@@ -1,0 +1,8 @@
+django
+django-environ
+mysqlclient
+djangorestframework
+djangorestframework-simplejwt
+django-cors-headers
+gunicorn
+requests
