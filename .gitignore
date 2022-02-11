@@ -1,3 +1,7 @@
 /frontend/web/node_modules
 /frontend/web/build
+**/__pycache__/
+# /backend/notifications/notifications/__pycache__/
+# /backend/notifications/notifications/middleware/__pycache__/
+# /backend/notifications/notifications/settings/__pycache__/
 procedure.txt
