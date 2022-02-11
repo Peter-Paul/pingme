@@ -46,7 +46,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 
     # Custom middleware
-    # 'notifications.middleware.authenticate.AuthenticateToken',
+    'notifications.middleware.authenticate.AuthenticateToken',
 ]
 
 ROOT_URLCONF = 'notifications.urls'
@@ -72,10 +72,10 @@ WSGI_APPLICATION = 'notifications.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': env("DATABASE_NAME") or 'pm_notifications',
-        'USER': env("DATABASE_USER") or 'root',
-        'PASSWORD': env("DATABASE_PASSWORD") or '',
-        'HOST': env("DATABASE_HOST") or '127.0.0.1',
+        'NAME': 'pm_notifications',
+        'USER': 'root',
+        'PASSWORD': '',
+        'HOST': '127.0.0.1',
         'PORT':'3306'
     }
 }

@@ -26,7 +26,6 @@ def listing_is_valid(request,notification):
 def listings_(request):
     data={}
     if request.method == 'GET':
-        print(request.user)
         listings = Stream.objects.all()
         serializer = StreamSerializer(listings, many=True)
         data['data']=serializer.data

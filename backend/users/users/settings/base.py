@@ -90,10 +90,10 @@ SIMPLE_JWT = {
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': env("DATABASE_NAME") or 'pm_users',
-        'USER': env("DATABASE_USER") or 'root',
-        'PASSWORD': env("DATABASE_PASSWORD") or '',
-        'HOST': env("DATABASE_HOST") or '127.0.0.1',
+        'NAME': 'pm_users',
+        'USER': 'root',
+        'PASSWORD': '',
+        'HOST': '127.0.0.1',
         'PORT':'3306'
     }
 }

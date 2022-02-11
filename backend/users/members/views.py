@@ -15,8 +15,7 @@ from rest_framework_simplejwt.authentication import JWTAuthentication
 
 from .serializers import MemberSerializer, MemberGetSerializer, ChangePasswordSerializer
 from .models import Member
-from users.settings.dev import EMAIL_HOST_USER
-from django.core import serializers as ds
+from users.settings.base import EMAIL_HOST_USER
 
 
 class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
@@ -27,6 +26,7 @@ class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
         # Add custom claims
         # token['id'] = str(user.id)
         token['username'] = user.username
+        token['is_active'] = user.is_active
         return token
 
 # CREATES JWT TOKENS
