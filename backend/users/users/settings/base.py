@@ -50,6 +50,8 @@ REST_FRAMEWORK = {
     ],
 }
 
+DOMAIN="localhost:3000"
+SITE_NAME="PingME"
 DJOSER = {
     'LOGIN_FIELD': 'email',
     'USER_CREATE_PASSWORD_RETYPE': True,
