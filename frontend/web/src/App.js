@@ -62,6 +62,7 @@ function App() {
   }
   const handlelogout = async () => {
     await logout(credentials.at)
+    clearTimeout(()=>handleCurrentState()) //prevent silent refresh
     setAuth(false)
   }
   const handleupdateuser = () =>{

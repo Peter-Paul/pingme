@@ -1,5 +1,3 @@
-from aifc import Error
-from lib2to3.pgen2 import token
 from rest_framework.response import Response
 from rest_framework import status
 import jwt
