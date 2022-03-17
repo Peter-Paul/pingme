@@ -1,7 +1,7 @@
 import axios  from "axios"
 
-const url = "http://localhost:8000/api/users/"
-const refreshurl = "http://localhost:8000/api/token/refresh/"
+const url = "http://localhost:8000/auth/"
+const refreshurl = "http://localhost:8000/auth/jwt/refresh/"
 
 // USER AUTHENTICATION
 export const signup = async (payload) => {
@@ -22,13 +22,16 @@ export const signup = async (payload) => {
 }
 
 export const login = async (payload) => {
-    return await axios.post( `${url}login/`, payload, {withCredentials:true})
+    return await axios.post( `${url}jwt/create/`, payload, {withCredentials:true})
     .then(res=>{
-        const access = res.data.token.access
+        console.log(res.data)
+        const access = res.data
         const payload = decodeAccessToken(access)
         return {error:false,data:payload}
     })
-    .catch(err=>{return {error:true,data:err.response.data}})
+    .catch(err=>{
+        console.log(err)
+        return {error:true,data:err}})
 }
 
 const decodeAccessToken = (t) => {
@@ -44,7 +47,7 @@ export const refreshToken = async() => {
         const payload = decodeAccessToken(access)
         return {error:false,data:payload}
     })
-    .catch(err=>{return {error:true,data:err.response.data}})
+    .catch(err=>{return {error:true,data:err}})
 
 }
 

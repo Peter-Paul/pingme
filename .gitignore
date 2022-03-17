@@ -1,4 +1,5 @@
 /frontend/web/node_modules
+/frontend/mobile/node_modules
 /frontend/web/build
 **/__pycache__/
 # /backend/notifications/notifications/__pycache__/
