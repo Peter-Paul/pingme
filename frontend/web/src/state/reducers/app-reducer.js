@@ -1,5 +1,8 @@
-
+import * as types from "../actions/types"
 const initialState = {
+    isauthenticated:false,
+    httpOptions:{},
+    token:"",
     credentials:{},
     user:{},
     list:[],
@@ -8,9 +11,16 @@ const initialState = {
 export default (state = initialState, action) => {
     switch(action.type){
         // USER FUNCTIONS
-        case "CREDENTIALS": return {...state, credentials:action.data}
+        case types.SET_USER_DETAILS:
+            return {
+                        ...state, 
+                        token:action.data.token,
+                        isauthenticated:action.data.isauthenticated,
+                        credentials:action.data.credentials,
+                        httpOptions:action.data.httpOptions
+                    }
         
-        case "UPDATE_USER": return {...state, user:action.data}
+        case types.SET_ACCOUNT: return {...state, user:action.data}
         
         case "REMOVE_USER": return {...state, user:{}}
         

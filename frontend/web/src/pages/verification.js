@@ -1,7 +1,7 @@
 function VerificationPage() {
     return ( 
         <div>
-            Awaiting Verification
+            <h1>Check email to activate your account</h1>
         </div>
      );
 }

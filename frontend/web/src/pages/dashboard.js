@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Navigate } from "react-router-dom"
 import { useSelector,useDispatch } from "react-redux"
 import {getUser,patchUser} from "../services/users"
-import {addListing, updateListing,updateUser} from "../state/actions/app-actions"
+import {addListing, updateListing,setAccount} from "../state/actions/app-actions"
 import { getuListing, postListing } from "../services/listings";
 import WelcomePage from "./welcome";
 import ListingItemsComponent from "../components/listings/listing-items";
@@ -34,7 +34,7 @@ function DashboardPage({authorized,handlelogout}) {
             return await getUser(credentials.id,credentials.at).then( (res)=>{
                 const {password,...data} = res.data.data.data // remove password from user object
                 console.log(data)
-                if (!res.error) dispatch(updateUser(data))
+                if (!res.error) dispatch(setAccount(data))
             })
         }else{
             return
@@ -70,8 +70,8 @@ function DashboardPage({authorized,handlelogout}) {
             if (res.error){
                 console.log(res.data)
             }else{ 
-                dispatch(updateUser(data))
-                updateUser(data)
+                dispatch(setAccount(data))
+                setAccount(data)
             }
         })
     }
@@ -82,7 +82,7 @@ function DashboardPage({authorized,handlelogout}) {
                 console.log(res.data)
             }else{ 
                 dispatch(addListing(data))
-                updateUser(data)
+                setAccount(data)
             }
         })
     }
@@ -97,7 +97,7 @@ function DashboardPage({authorized,handlelogout}) {
                 <button className="mb-4 btn btn-primary" onClick={()=>changeView("welcome")}>Dashboard</button>
                 <button className="mb-4 btn btn-primary" onClick={handlelogout} >Logout</button>
             </div>
-            {view==="welcome" &&
+            {/* {view==="welcome" &&
                 <WelcomePage
                     user={user}
                     lists={lists}
@@ -113,7 +113,7 @@ function DashboardPage({authorized,handlelogout}) {
                     changeView={changeView}
                 />
             }
- 
+  */}
         </div>
 
         

@@ -28,7 +28,7 @@ class UserAccountManager(BaseUserManager):
         user.save(using=self._db)
         return user
 
-class UserAccount(AbstractBaseUser, PermissionsMixin):
+class UserAccount(AbstractBaseUser):
     id                      = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     email                   = models.EmailField(max_length=255, unique=True)
     username                = models.CharField(max_length=255)
@@ -47,11 +47,11 @@ class UserAccount(AbstractBaseUser, PermissionsMixin):
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['username']
 
-    def get_full_name(self):
-        return self.first_name
+    # def get_full_name(self):
+    #     return self.first_name
 
-    def get_short_name(self):
-        return self.first_name
+    # def get_short_name(self):
+    #     return self.first_name
     
     def __str__(self):
         return self.email

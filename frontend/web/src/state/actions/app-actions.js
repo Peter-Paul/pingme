@@ -1,16 +1,17 @@
+import * as types  from "./types"
 // USER ACTIONS
 
-export const setcredentials=(data)=>{
+export const setDetails=(data)=>{
     return {
-        type:"CREDENTIALS",
-        data:data
+        type:types.SET_USER_DETAILS,
+        data
     }
 }
 
-export const updateUser=(data)=>{
+export const setAccount=(data)=>{
     return {
-        type:"UPDATE_USER",
-        data:data
+        type:types.SET_ACCOUNT,
+        data
     }
 }
 
